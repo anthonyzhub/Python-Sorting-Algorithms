@@ -31,6 +31,7 @@ def sortArray(left, right, arr=[]):
     pivot = arr[int((left + right) / 2)]
     index = partitionArray(left, right, pivot, arr)
 
+    # Continue to split array in halves, if the first condition wasn't met
     sortArray(left, index - 1, arr)
     sortArray(index, right, arr)
 
