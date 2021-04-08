@@ -1,50 +1,49 @@
-def partitionArray(left, right, pivot, arr=[]):
-
-    # Move pointers closer to each other
-    while left <= right:
-
-        # Move left pointer until it reaches a value less than pivot
-        while arr[left] < pivot:
-            left += 1
-
-        # Move right pointer until it reaches a value greater than pivot
-        while arr[right] > pivot:
-            right -= 1
-
-        # Swap values and move indices
-        if left <= right:
-            arr[left], arr[right] = arr[right], arr[left]
-            left += 1
-            right -= 1
-
-    # Left will be partitionArray point
-    return left
-
-
-def sortArray(left, right, arr=[]):
-
-    # Balance check
-    if left >= right:
-        return 0
-
-    # Create pivot variable and set it equal to center
-    pivot = arr[int((left + right) / 2)]
-    index = partitionArray(left, right, pivot, arr)
-
-    # Continue to split array in halves, if the first condition wasn't met
-    sortArray(left, index - 1, arr)
-    sortArray(index, right, arr)
-
-
-def quickSort(arr=[]):
-    # Call sortArray function recursively
-    return sortArray(0, len(arr) - 1, arr)
-
-
-if __name__ == "__main__":
+def splitList(arr, pivot, leftPtr, rightPtr):
     
-    arr_1 = [1, 45, 6, 1, 7, 0]
-    print(arr_1)
+    # Iterate list
+    while leftPtr <= rightPtr:
+        
+        # Move leftPtr until it reaches an element greater than pivot
+        while arr[leftPtr] < pivot:
+            leftPtr += 1
+            
+        # Move rightPtr until it reaches an element less than pivot
+        while arr[rightPtr] > pivot:
+            rightPtr -= 1
+            
+        # When both inner while-loops stop, swap values
+        if leftPtr <= rightPtr:
+            
+            # Swap values
+            arr[leftPtr], arr[rightPtr] = arr[rightPtr], arr[leftPtr]
+            
+            # Update indexes
+            leftPtr += 1
+            rightPtr -= 1
+            
+    # Return leftPtr for further use
+    return leftPtr
 
-    quickSort(arr_1)
-    print(arr_1)
+def sortList(arr, leftPtr, rightPtr):
+    
+    # If pointers overlap, exit function
+    if leftPtr >= rightPtr:
+        return
+    
+    # Create a pivot
+    midIdx = (leftPtr + rightPtr) // 2
+    pivot = arr[midIdx]
+
+    # Get index of where to split list
+    idx = splitList(arr, pivot, leftPtr, rightPtr)
+    
+    # Make a recursive call to shorten list
+    sortList(arr, leftPtr, idx - 1)
+    sortList(arr, idx, rightPtr)
+
+def quickSort(arr):
+    sortList(arr, 0, len(arr) - 1)
+    
+arr = [12, 89, 12, 43, 0, 3, 7, 6]
+quickSort(arr)
+print(arr)
