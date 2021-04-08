@@ -1,9 +1,3 @@
-# QuickSort-Python-
+# Python Sorting Algorithms
 
-Hi Everyone,
-
-Just like the title says, this is a repository for the QuickSort algorithm on Python. QuickSort follows the divide-and-conquer method by choosing an element from an array as its pivot. After selecting a pivot, the array is paritioned, cut into smaller pieces. This is where the actual sorting begins.
-
-`quickSort()` is a function that returns a value from another function called `sortArray()`. `sortArray()` requires three parameters to be passed: left, right and array. `left` is a pointer to an element of the right side of the pivot, while `right` points to an element on the right. Since this is the beginning, both pointers point to the array's endpoints. A balance check is made to make sure the pointers don't overlap, or are set in the wrong place. Any element can be a `pivot`, but for this example, I selected the array's median. `index` will return the new position of `left` from `partitionArray()`, then `sortArray()` will be called recursively until the sorting is finish.
-
-`partitionArray()` simply divides the array into smaller pieces, then sort the elements of the small pieces. The outer while-loop helps the `left` and `right` pointers move closer to each other, until they are equal or `left` is greater than `right`. The 1st inner while-loop moves `left` closer to `pivot`, if `left`'s value is greater than pivot. In other words, the loop will terminate if there is a number on the left side of the array that is larger than the pivot. Our goal is to keep any number smaller than the pivot to stay on the left side. Vice versa for bigger numbers as well. Once both inner while-loops are terminated, we double check the pointers' positions. If both pointers don't overlap, then swap their values because the numbers are in the incorrect place. `left` is returned for `sortArray()` to check if the array can still be divided into smaller pieces. 
+A great explaination of how both sorting algorithms work through comments
