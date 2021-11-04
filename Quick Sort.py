@@ -1,3 +1,10 @@
+"""
+Time complexity is O(n log n) in the best-case scenario, while worst-case scenario is O(n^2). A worst-case scenario is when the list is sorted in descending order,
+so it will take more time to sort the list in ascending order.
+
+Space complexity is O(n). In both measurements, "n" represents the number of nodes inside the list.
+"""
+
 def splitList(arr, pivot, leftPtr, rightPtr):
     
     # Iterate list
