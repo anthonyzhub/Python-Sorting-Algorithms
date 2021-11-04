@@ -1,3 +1,8 @@
+"""
+Time complexity is O(n log n) where "n" is the number of elements inside the list.
+Space complexity is O(n) where "n" is the number of elements inside the list.
+"""
+
 def mergeSort(arr):
     
     # If list isn't empty, continue
