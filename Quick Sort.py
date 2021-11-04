@@ -28,7 +28,7 @@ def splitList(arr, pivot, leftPtr, rightPtr):
             leftPtr += 1
             rightPtr -= 1
             
-    # Return leftPtr for further use
+    # Return leftPtr for future use
     return leftPtr
 
 def sortList(arr, leftPtr, rightPtr):
@@ -44,7 +44,7 @@ def sortList(arr, leftPtr, rightPtr):
     # Get index of where to split list
     idx = splitList(arr, pivot, leftPtr, rightPtr)
     
-    # Make a recursive call to shorten list
+    # Sort left and right half
     sortList(arr, leftPtr, idx - 1)
     sortList(arr, idx, rightPtr)
 
