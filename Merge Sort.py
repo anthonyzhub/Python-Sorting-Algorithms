@@ -1,5 +1,5 @@
 """
-Time complexity is O(n log n) where "n" is the number of elements inside the list.
+Time complexity is O(n log n) where "n" is the number of elements inside the list. Time complexity will always be O(n log n) no matter what!
 Space complexity is O(n) where "n" is the number of elements inside the list.
 """
 
